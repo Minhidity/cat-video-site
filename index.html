@@ -20,13 +20,13 @@
 </head>
 <body>
   <video id="catVideo" autoplay loop playsinline>
-    <source src="cat.mp4" type="video/mp4" />
+    <source src="https://raw.githubusercontent.com/minhidity/cat-video-site/main/cat.mp4" type="video/mp4" />
     Your browser does not support the video tag.
   </video>
 
   <script>
     const video = document.getElementById('catVideo');
-    video.volume = 0.5;  // set volume to 50%
+    video.volume = 1;  
 
     // Try to play with sound on load, catch any errors if autoplay with sound is blocked
     video.play().catch(() => {
@@ -51,4 +51,4 @@
     });
   </script>
 </body>
-</html>
+<
