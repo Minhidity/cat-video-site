@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Endless Cat with Sound</title>
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    video {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <video id="catVideo" autoplay loop playsinline>
+    <source src="cat.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <script>
+    const video = document.getElementById('catVideo');
+    video.volume = 0.5;  // set volume to 50%
+
+    // Try to play with sound on load, catch any errors if autoplay with sound is blocked
+    video.play().catch(() => {
+      // If autoplay with sound is blocked, mute the video and show a play button
+      video.muted = true;
+      const btn = document.createElement('button');
+      btn.textContent = 'Play Video with Sound';
+      btn.style.position = 'absolute';
+      btn.style.top = '20px';
+      btn.style.left = '20px';
+      btn.style.padding = '10px 20px';
+      btn.style.fontSize = '16px';
+      btn.style.cursor = 'pointer';
+
+      btn.onclick = () => {
+        video.muted = false;
+        video.play();
+        btn.remove();
+      };
+
+      document.body.appendChild(btn);
+    });
+  </script>
+</body>
+</html>
